@@ -1,0 +1,21 @@
+[project]
+name = "mpCommunication"
+version = "0.0.1"
+authors = [
+  { name="Abdulahad Kancan", email="ahad.kancan@gmail.com" },
+]
+description = "A message passing and event based communication system for Python multiprocessing processes."
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/Abd0s/multiprocessing-messaging"
+Issues = "https://github.com/Abd0s/multiprocessing-messaging/issues"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
