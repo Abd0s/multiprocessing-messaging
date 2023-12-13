@@ -1,6 +1,13 @@
 # multiprocessing-messaging
 A message passing and event based communication system for Python multiprocessing processes.
 
+
+## Install
+Use Pip to install this package.
+```bash
+> pip install pip install https://github.com/Abd0s/multiprocessing-messaging
+````
+> 
 ## Example usage
 The code bellow shows a minimal usage example. Messages are defined as subclasses of
 the `Message` base class. Message handlers within process are registered using the `OnMessage`
@@ -13,12 +20,15 @@ and synchronize processes.
 Received messages are automatically parsed into the defined message dataclasses and optionally
 made available to the registered message handler methods.
 ```python
+import mpCommunication
+import multiprocessing as mp
+
 @dataclasses.dataclass
-class SomeMessage(Message):
+class SomeMessage(mpCommunication.Message):
     name: str
     description: str
 
-@MessageHandler
+@mpCommunication.MessageHandler
 class ExampleProcess(mp.Process):
 
     def __init__(self, connection: mp.Queue):
@@ -33,10 +43,10 @@ class ExampleProcess(mp.Process):
     def update(self):
         self.handle_messages(self.connection)
 
-    @OnMessage(SomeMessage)
+    @mpCommunication.OnMessage(SomeMessage)
     def print_pid(self, message: SomeMessage):
         print(message.name, flush=True)
-        print(wait_for_message(self.connection, SomeMessage).description, flush=True)  # Wait for another message
+        print(mpCommunication.wait_for_message(self.connection, SomeMessage).description, flush=True)  # Wait for another message
         self.connection.put(SomeMessage(name="Foo", description="A Foo"))  # Send back the same message
 ```
 
