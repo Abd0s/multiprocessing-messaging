@@ -5,7 +5,7 @@ A message passing and event based communication system for Python multiprocessin
 ## Install
 Use Pip to install this package.
 ```bash
-> pip install pip install https://github.com/Abd0s/multiprocessing-messaging
+> pip install git+https://github.com/Abd0s/multiprocessing-messaging
 ````
 > 
 ## Example usage
